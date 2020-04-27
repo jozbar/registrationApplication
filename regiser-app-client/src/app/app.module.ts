@@ -2,18 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { appRoutingModule } from './app.routing';
-import { ErrorInterceptor } from './helpers';
+import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home';
-import { RegisterComponent } from './register';
+import { HomeComponent } from "./home/home.component";
+import { RegisterComponent } from "./register/register.component";
+import { ErrorInterceptor } from "./helpers/error.interceptor";
 
 @NgModule({
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         HttpClientModule,
-        appRoutingModule
+        AppRoutingModule
     ],
     declarations: [
         AppComponent,

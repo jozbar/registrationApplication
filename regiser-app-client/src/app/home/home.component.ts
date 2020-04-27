@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {UserService} from "../services";
-import {first} from "rxjs/operators";
-import {User} from "../model/user.model";
+import { ActivatedRoute } from "@angular/router";
+import { User } from "../model/user.model";
+import { UserService } from "../services/user.service";
 
 @Component({ templateUrl: 'home.component.html' })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
     returnUrl: string;
     error: string;
     success: string;
     users: User[];
-// users =[];
 
     constructor(
         private route: ActivatedRoute,
@@ -33,7 +31,6 @@ export class HomeComponent {
 
     private loadAllUsers() {
         this.userService.getAll()
-            // .pipe(first())
             .subscribe(users => {debugger;
                 this.users = users});
     }
