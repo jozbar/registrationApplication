@@ -14,16 +14,4 @@ export class UserService {
     register(user: User){
         return this.http.post<User>(this.baseUrl + 'register/', user);
     }
-
-    delete(id) {
-        return this.http.delete(`${config.apiUrl}/users/${id}`);
-    }
-
-    findByUsername(username : string) {
-        return this.http.get(`${config.apiUrl}/users/${username}`);
-    }
-
-    findById(id : number) {
-        return this.http.get(`${config.apiUrl}/users/${id}`);
-    }
 }

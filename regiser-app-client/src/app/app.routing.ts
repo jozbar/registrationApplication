@@ -1,11 +1,11 @@
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home';
-import { RegisterComponent } from './register';
+import { HomeComponent } from "./home/home.component";
+import { RegisterComponent } from "./register/register.component";
 
 const routes: Routes = [
-    { path: '', component: HomeComponent},
+    { path: '', component: HomeComponent },
     { path: 'register', component: RegisterComponent },
     { path: '**', redirectTo: '' }
 ];
 
-export const appRoutingModule = RouterModule.forRoot(routes);
+export const AppRoutingModule = RouterModule.forRoot(routes);
