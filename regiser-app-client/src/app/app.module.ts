@@ -4,9 +4,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from './app.component';
-import { HomeComponent } from "./home/home.component";
-import { RegisterComponent } from "./register/register.component";
-import { ErrorInterceptor } from "./helpers/error.interceptor";
+import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 
 @NgModule({
     imports: [
