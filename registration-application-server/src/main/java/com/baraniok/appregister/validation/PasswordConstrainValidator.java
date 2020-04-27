@@ -36,7 +36,6 @@ public class PasswordConstrainValidator implements ConstraintValidator<ValidPass
 		List<String> errorMessages = passwordValidator.getMessages(ruleResult);
 		context.disableDefaultConstraintViolation();
 		errorMessages.forEach(s -> context.buildConstraintViolationWithTemplate(s).addConstraintViolation());
-//		context.buildConstraintViolationWithTemplate(Joiner.on(",").join(errorMessages)).addConstraintViolation();
 		return false;
 	}
 }

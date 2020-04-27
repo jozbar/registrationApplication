@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ErrorInterceptor } from './helpers/error.interceptor';
+import { JumbotronComponent } from './jumbotron/jumbotron.component';
 
 @NgModule({
     imports: [
@@ -18,7 +19,8 @@ import { ErrorInterceptor } from './helpers/error.interceptor';
     declarations: [
         AppComponent,
         HomeComponent,
-        RegisterComponent
+        RegisterComponent,
+        JumbotronComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }

@@ -23,10 +23,8 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 	@ExceptionHandler({UserNotFoundException.class, UserAlreadyExistException.class, ConstraintViolationException.class})
 	public ResponseEntity<Object> handleException(Exception e) {
 		if (e instanceof UserNotFoundException) {
-//			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
 			return handleCommonException(e, e.getMessage(), HttpStatus.NOT_FOUND);
 		} else if (e instanceof UserAlreadyExistException) {
-//			return ResponseEntity.status(HttpStatus.CONFLICT).body(e.getMessage());
 			return handleCommonException(e, e.getMessage(), HttpStatus.CONFLICT);
 		} else if (e instanceof ConstraintViolationException) {
 			return handleConstraintViolation((ConstraintViolationException)e);
@@ -34,7 +32,6 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
 		}
 	}
-	
 	
 	private ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException e) {
 		List<String> errors = new ArrayList<>();
@@ -44,15 +41,12 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 		}
 	
 		return  handleCommonException(e, errors, HttpStatus.BAD_REQUEST);
-//		ApiError apiError = new ApiError(e.getLocalizedMessage(), errors, HttpStatus.BAD_REQUEST);
-//		return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
 	}
 	
 	@Override
 	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 		List<String> errors = new ArrayList<>();
 		for (FieldError error : ex.getBindingResult().getFieldErrors()) {
-//			errors.add(error.getField() + ": " + error.getDefaultMessage());
 			errors.add(error.getDefaultMessage());
 		}
 		for (ObjectError error : ex.getBindingResult().getGlobalErrors()) {
@@ -70,10 +64,5 @@ public class CustomRestExceptionHandler extends ResponseEntityExceptionHandler {
 		ApiError apiError = new ApiError(ex.getLocalizedMessage(), error, status);
 		return new ResponseEntity<>(apiError, apiError.getStatus());
 	}
-	
-	
-	//	@Override
-//	protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
-//		return super.handleMethodArgumentNotValid(ex, headers, status, request);
-//	}
+
 }

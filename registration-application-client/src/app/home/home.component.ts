@@ -17,12 +17,9 @@ export class HomeComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
 
-        // show success message on registration
         if (this.route.snapshot.queryParams['registered']) {
-            debugger;
             this.success= 'Succesfully registered new user: ' + this.route.snapshot.queryParams['username'];
         }
 
@@ -31,7 +28,7 @@ export class HomeComponent implements OnInit {
 
     private loadAllUsers() {
         this.userService.getAll()
-            .subscribe(users => {debugger;
+            .subscribe(users => {
                 this.users = users});
     }
 }

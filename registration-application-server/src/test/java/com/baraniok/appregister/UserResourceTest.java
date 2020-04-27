@@ -107,7 +107,7 @@ class UserResourceTest {
 
 		perform.andExpect(status().isOk())
 				.andExpect(content()
-						.string("[{\"id\":null,\"username\":\"Marysia\",\"password\":\"Hello123\"},{\"id\":null,\"username\":\"Ala\",\"password\":\"Hello1234\"}]"));
+						.string("[{\"id\":null,\"username\":\"Marysia\"},{\"id\":null,\"username\":\"Ala\"}]"));
 	}
 
 	private List<User> createUsers() {
