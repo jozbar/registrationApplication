@@ -2,17 +2,26 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<parent>
-		<artifactId>registration-application</artifactId>
-		<groupId>com.baraniok</groupId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
 	<modelVersion>4.0.0</modelVersion>
 
 	<artifactId>server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<packaging>jar</packaging>
+
+	<parent>
+		<artifactId>registration-application</artifactId>
+		<groupId>com.baraniok</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
 	<dependencies>
+		<dependency>
+			<groupId>com.baraniok</groupId>
+			<artifactId>client</artifactId>
+			<version>${project.version}</version>
+<!--			<scope>runtime</scope>-->
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -78,34 +87,28 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>com.baraniok</groupId>-->
-<!--			<artifactId>client</artifactId>-->
-<!--			<version>${project.version}</version>-->
-<!--			<scope>runtime</scope>-->
-<!--		</dependency>-->
 	</dependencies>
 
 	<build>
 		<plugins>
-			<plugin>
-				<artifactId>maven-resources-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-resources</id>
-						<phase>validate</phase>
-						<goals><goal>copy-resources</goal></goals>
-						<configuration>
-							<outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>
-							<resources>
-								<resource>
-									<directory>${project.parent.basedir}/register-app-server/dist/frontend/</directory>
-								</resource>
-							</resources>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+<!--			<plugin>-->
+<!--				<artifactId>maven-resources-plugin</artifactId>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<id>copy-resources</id>-->
+<!--						<phase>validate</phase>-->
+<!--						<goals><goal>copy-resources</goal></goals>-->
+<!--						<configuration>-->
+<!--							<outputDirectory>${project.build.directory}/classes/resources/</outputDirectory>-->
+<!--							<resources>-->
+<!--								<resource>-->
+<!--									<directory>${project.parent.basedir}/register-app-server/dist/frontend/</directory>-->
+<!--								</resource>-->
+<!--							</resources>-->
+<!--						</configuration>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

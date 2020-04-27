@@ -4,8 +4,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<packaging>pom</packaging>
 	<modules>
-		<module>register-app-server</module>
 		<module>regiser-app-client</module>
+		<module>register-app-server</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
