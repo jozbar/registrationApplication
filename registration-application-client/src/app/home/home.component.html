@@ -1,0 +1,11 @@
+<div *ngIf="error" class="alert alert-danger">{{error}}</div>
+<div *ngIf="success" class="alert alert-success">{{success}}</div>
+
+<h2>Registration App</h2><br/>
+<h3>All registered users:</h3>
+<ul><li *ngFor="let user of users"> {{user.username}} </li> </ul>
+
+
+<div class="form-group">
+    <button class = "btn btn-primary" routerLink="/register">Register new User </button>
+</div>
