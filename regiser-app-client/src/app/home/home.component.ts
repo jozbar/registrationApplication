@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
-import { User } from "../model/user.model";
-import { UserService } from "../services/user.service";
+import { ActivatedRoute } from '@angular/router';
+import { User } from '../model/user.model';
+import { UserService } from '../services/user.service';
 
 @Component({ templateUrl: 'home.component.html' })
 export class HomeComponent implements OnInit {
